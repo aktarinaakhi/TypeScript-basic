@@ -50,6 +50,7 @@ newTodoRef.current.value=""
 },[])
 
 
+
   return (
 
 
@@ -65,6 +66,7 @@ newTodoRef.current.value=""
       todos.map((todo)=>(
         <div key={todo.id}>
           {todo.text}
+          <button onClick={()=>dispatch({type: "REMOVE", id:todo.id})}>Remove</button>
         </div>
       ))
      }
