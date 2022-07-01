@@ -1,5 +1,4 @@
-import React, { useCallback, useReducer, useRef } from 'react';
-import { act } from 'react-dom/test-utils';
+import React, { useCallback, useReducer, useRef, useState } from 'react';
 import './App.css';
 import { Lists } from './components/Lists';
 
@@ -17,6 +16,10 @@ type actionType =
 | {type:"REMOVE"; id:number}
 
 function App() {
+  
+  const [myState, setMyState]= useState<Todo>();
+
+
   // useReducer
 function reducer(state:Todo[],action:actionType){
   switch(action.type) {
@@ -28,6 +31,8 @@ function reducer(state:Todo[],action:actionType){
           text :action.text
         }
       ]
+
+      
       case "REMOVE":
         return state.filter(({id})=>id !== action.id)
   }
